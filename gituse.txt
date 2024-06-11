@@ -1,0 +1,27 @@
+远程仓库：git@github.com:Liuzq21/Taqikema.git
+
+B517 电脑上有分支
+-main    用于拉取同步远程github仓库
+-b517    用于在实验室电脑上进行开发，而后合并至main，推送至远程main
+
+
+
+一些命令：
+创建
+$ git remote add origin [远程仓库]  绑定远程仓库
+// $  git branck -M main 重命名分支名为main
+$ git push -u origin master // 本地库所有内容均保存至远程库
+
+本地推送至远程
+$  git checkout -b dev  创建并切换到dev分支
+$ git add readme.txt 
+$ git commit -m "branch test"
+$ git checkout master  切换回master分支
+$ git merge dev  把dev分支的内容合并到master上
+$  git push origin master // 把本地master分支的最新修改推送至GitHub
+
+拉取远程更新本地
+$  git checkout master 
+$ git pull origin master 
+$ git checkout dev 
+$ git merge master
