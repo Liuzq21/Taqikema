@@ -10,6 +10,7 @@
 #define UI_WIDGET_H
 
 #include <QtCore/QVariant>
+#include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QCheckBox>
 #include <QtWidgets/QHBoxLayout>
@@ -27,12 +28,6 @@ class Ui_Widget
 public:
     QLabel *label;
     QLabel *label_2;
-    QWidget *horizontalLayoutWidget;
-    QHBoxLayout *horizontalLayout;
-    QLabel *label_3;
-    QSpacerItem *horizontalSpacer;
-    QToolButton *toolButton;
-    QToolButton *toolButton_2;
     QLabel *label_4;
     QLineEdit *lineEdit;
     QLineEdit *lineEdit_2;
@@ -41,6 +36,11 @@ public:
     QCheckBox *checkBox_2;
     QCheckBox *checkBox;
     QPushButton *pushButton;
+    QWidget *horizontalLayoutWidget;
+    QHBoxLayout *horizontalLayout;
+    QSpacerItem *horizontalSpacer;
+    QToolButton *toolButton_2;
+    QToolButton *toolButton;
 
     void setupUi(QWidget *Widget)
     {
@@ -50,44 +50,30 @@ public:
         label = new QLabel(Widget);
         label->setObjectName("label");
         label->setGeometry(QRect(10, 10, 331, 71));
+        label->setPixmap(QPixmap(QString::fromUtf8(":/login/lib/bg1.jpg")));
+        label->setScaledContents(true);
         label_2 = new QLabel(Widget);
         label_2->setObjectName("label_2");
         label_2->setGeometry(QRect(10, 81, 331, 131));
-        horizontalLayoutWidget = new QWidget(Widget);
-        horizontalLayoutWidget->setObjectName("horizontalLayoutWidget");
-        horizontalLayoutWidget->setGeometry(QRect(0, 10, 341, 31));
-        horizontalLayout = new QHBoxLayout(horizontalLayoutWidget);
-        horizontalLayout->setObjectName("horizontalLayout");
-        horizontalLayout->setContentsMargins(0, 0, 0, 0);
-        label_3 = new QLabel(horizontalLayoutWidget);
-        label_3->setObjectName("label_3");
-        label_3->setEnabled(true);
-
-        horizontalLayout->addWidget(label_3);
-
-        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
-
-        horizontalLayout->addItem(horizontalSpacer);
-
-        toolButton = new QToolButton(horizontalLayoutWidget);
-        toolButton->setObjectName("toolButton");
-
-        horizontalLayout->addWidget(toolButton);
-
-        toolButton_2 = new QToolButton(horizontalLayoutWidget);
-        toolButton_2->setObjectName("toolButton_2");
-
-        horizontalLayout->addWidget(toolButton_2);
-
+        label_2->setPixmap(QPixmap(QString::fromUtf8(":/login/lib/bg3.jpg")));
+        label_2->setScaledContents(true);
         label_4 = new QLabel(Widget);
         label_4->setObjectName("label_4");
-        label_4->setGeometry(QRect(140, 50, 61, 61));
+        label_4->setGeometry(QRect(130, 50, 91, 61));
+        label_4->setStyleSheet(QString::fromUtf8("#label_4{\n"
+"	border-image: url(:/login/lib/head.jpg);\n"
+"	border-width:0px;\n"
+"	border-radius:33px;\n"
+"	border-style:solid;\n"
+"	border-color: rgb(255, 255, 255);\n"
+"}"));
+        label_4->setScaledContents(true);
         lineEdit = new QLineEdit(Widget);
         lineEdit->setObjectName("lineEdit");
-        lineEdit->setGeometry(QRect(110, 130, 113, 20));
+        lineEdit->setGeometry(QRect(120, 130, 113, 20));
         lineEdit_2 = new QLineEdit(Widget);
         lineEdit_2->setObjectName("lineEdit_2");
-        lineEdit_2->setGeometry(QRect(110, 160, 113, 20));
+        lineEdit_2->setGeometry(QRect(120, 160, 113, 20));
         horizontalLayoutWidget_2 = new QWidget(Widget);
         horizontalLayoutWidget_2->setObjectName("horizontalLayoutWidget_2");
         horizontalLayoutWidget_2->setGeometry(QRect(40, 190, 271, 31));
@@ -106,8 +92,54 @@ public:
 
         pushButton = new QPushButton(horizontalLayoutWidget_2);
         pushButton->setObjectName("pushButton");
+        pushButton->setStyleSheet(QString::fromUtf8("#pushButton{\n"
+"background-color: rgb(99, 188, 255);\n"
+"color: rgb(255, 255, 255);\n"
+"border-radius: 5px;\n"
+"font-size:14px;\n"
+"}\n"
+"#pushButton:hover{\n"
+"background-color: rgb(99, 170, 255);\n"
+"color: rgb(255, 255, 255);\n"
+"border-radius: 5px;\n"
+"\n"
+"}\n"
+"#pushButton:pressed{\n"
+"background-color: rgb(99, 188, 255);\n"
+"color: rgb(255, 255, 255);\n"
+"border-radius: 5px;\n"
+"padding-left:2px;\n"
+"padding-top:2px;\n"
+"}\n"
+""));
 
         horizontalLayout_3->addWidget(pushButton);
+
+        horizontalLayoutWidget = new QWidget(Widget);
+        horizontalLayoutWidget->setObjectName("horizontalLayoutWidget");
+        horizontalLayoutWidget->setGeometry(QRect(10, 0, 331, 31));
+        horizontalLayout = new QHBoxLayout(horizontalLayoutWidget);
+        horizontalLayout->setObjectName("horizontalLayout");
+        horizontalLayout->setContentsMargins(0, 0, 0, 0);
+        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
+
+        horizontalLayout->addItem(horizontalSpacer);
+
+        toolButton_2 = new QToolButton(horizontalLayoutWidget);
+        toolButton_2->setObjectName("toolButton_2");
+        QIcon icon;
+        icon.addFile(QString::fromUtf8(":/login/lib/hide.png"), QSize(), QIcon::Normal, QIcon::Off);
+        toolButton_2->setIcon(icon);
+
+        horizontalLayout->addWidget(toolButton_2);
+
+        toolButton = new QToolButton(horizontalLayoutWidget);
+        toolButton->setObjectName("toolButton");
+        QIcon icon1;
+        icon1.addFile(QString::fromUtf8(":/login/lib/close.png"), QSize(), QIcon::Normal, QIcon::Off);
+        toolButton->setIcon(icon1);
+
+        horizontalLayout->addWidget(toolButton);
 
 
         retranslateUi(Widget);
@@ -118,15 +150,14 @@ public:
     void retranslateUi(QWidget *Widget)
     {
         Widget->setWindowTitle(QCoreApplication::translate("Widget", "Widget", nullptr));
-        label->setText(QCoreApplication::translate("Widget", "\350\203\214\346\231\2571", nullptr));
-        label_2->setText(QCoreApplication::translate("Widget", "\350\203\214\346\231\2572", nullptr));
-        label_3->setText(QCoreApplication::translate("Widget", "\345\233\276\347\211\2071", nullptr));
-        toolButton->setText(QCoreApplication::translate("Widget", "...", nullptr));
-        toolButton_2->setText(QCoreApplication::translate("Widget", "...", nullptr));
-        label_4->setText(QCoreApplication::translate("Widget", "\345\244\264\345\203\217", nullptr));
-        checkBox_2->setText(QCoreApplication::translate("Widget", "CheckBox", nullptr));
-        checkBox->setText(QCoreApplication::translate("Widget", "CheckBox", nullptr));
+        label->setText(QString());
+        label_2->setText(QString());
+        label_4->setText(QString());
+        checkBox_2->setText(QCoreApplication::translate("Widget", "\350\207\252\345\212\250\347\231\273\345\275\225", nullptr));
+        checkBox->setText(QCoreApplication::translate("Widget", "\350\256\260\344\275\217\345\257\206\347\240\201", nullptr));
         pushButton->setText(QCoreApplication::translate("Widget", "PushButton", nullptr));
+        toolButton_2->setText(QCoreApplication::translate("Widget", "...", nullptr));
+        toolButton->setText(QCoreApplication::translate("Widget", "...", nullptr));
     } // retranslateUi
 
 };

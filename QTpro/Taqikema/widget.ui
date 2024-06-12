@@ -23,7 +23,13 @@
     </rect>
    </property>
    <property name="text">
-    <string>背景1</string>
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="allResource.qrc">:/login/lib/bg1.jpg</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
    </property>
   </widget>
   <widget class="QLabel" name="label_2">
@@ -36,75 +42,44 @@
     </rect>
    </property>
    <property name="text">
-    <string>背景2</string>
+    <string/>
    </property>
-  </widget>
-  <widget class="QWidget" name="horizontalLayoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>10</y>
-     <width>341</width>
-     <height>31</height>
-    </rect>
+   <property name="pixmap">
+    <pixmap resource="allResource.qrc">:/login/lib/bg3.jpg</pixmap>
    </property>
-   <layout class="QHBoxLayout" name="horizontalLayout">
-    <item>
-     <widget class="QLabel" name="label_3">
-      <property name="enabled">
-       <bool>true</bool>
-      </property>
-      <property name="text">
-       <string>图片1</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <spacer name="horizontalSpacer">
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>40</width>
-        <height>20</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-    <item>
-     <widget class="QToolButton" name="toolButton">
-      <property name="text">
-       <string>...</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QToolButton" name="toolButton_2">
-      <property name="text">
-       <string>...</string>
-      </property>
-     </widget>
-    </item>
-   </layout>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
   </widget>
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
-     <x>140</x>
+     <x>130</x>
      <y>50</y>
-     <width>61</width>
+     <width>91</width>
      <height>61</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">#label_4{
+	border-image: url(:/login/lib/head.jpg);
+	border-width:0px;
+	border-radius:33px;
+	border-style:solid;
+	border-color: rgb(255, 255, 255);
+}</string>
+   </property>
    <property name="text">
-    <string>头像</string>
+    <string/>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
    </property>
   </widget>
   <widget class="QLineEdit" name="lineEdit">
    <property name="geometry">
     <rect>
-     <x>110</x>
+     <x>120</x>
      <y>130</y>
      <width>113</width>
      <height>20</height>
@@ -114,7 +89,7 @@
   <widget class="QLineEdit" name="lineEdit_2">
    <property name="geometry">
     <rect>
-     <x>110</x>
+     <x>120</x>
      <y>160</y>
      <width>113</width>
      <height>20</height>
@@ -134,19 +109,41 @@
     <item>
      <widget class="QCheckBox" name="checkBox_2">
       <property name="text">
-       <string>CheckBox</string>
+       <string>自动登录</string>
       </property>
      </widget>
     </item>
     <item>
      <widget class="QCheckBox" name="checkBox">
       <property name="text">
-       <string>CheckBox</string>
+       <string>记住密码</string>
       </property>
      </widget>
     </item>
     <item>
      <widget class="QPushButton" name="pushButton">
+      <property name="styleSheet">
+       <string notr="true">#pushButton{
+background-color: rgb(99, 188, 255);
+color: rgb(255, 255, 255);
+border-radius: 5px;
+font-size:14px;
+}
+#pushButton:hover{
+background-color: rgb(99, 170, 255);
+color: rgb(255, 255, 255);
+border-radius: 5px;
+
+}
+#pushButton:pressed{
+background-color: rgb(99, 188, 255);
+color: rgb(255, 255, 255);
+border-radius: 5px;
+padding-left:2px;
+padding-top:2px;
+}
+</string>
+      </property>
       <property name="text">
        <string>PushButton</string>
       </property>
@@ -154,7 +151,56 @@
     </item>
    </layout>
   </widget>
+  <widget class="QWidget" name="horizontalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>0</y>
+     <width>331</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <spacer name="horizontalSpacer">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
+     <widget class="QToolButton" name="toolButton_2">
+      <property name="text">
+       <string>...</string>
+      </property>
+      <property name="icon">
+       <iconset resource="allResource.qrc">
+        <normaloff>:/login/lib/hide.png</normaloff>:/login/lib/hide.png</iconset>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QToolButton" name="toolButton">
+      <property name="text">
+       <string>...</string>
+      </property>
+      <property name="icon">
+       <iconset resource="allResource.qrc">
+        <normaloff>:/login/lib/close.png</normaloff>:/login/lib/close.png</iconset>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="allResource.qrc"/>
+ </resources>
  <connections/>
 </ui>

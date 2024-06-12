@@ -25,3 +25,11 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     allResource.qrc
+
+DISTFILES += \
+    lib/bg1.jpg \
+    lib/bg3.jpg \
+    lib/close.png \
+    lib/head.jpg \
+    lib/hide.png \
+    lib/shezhang.png

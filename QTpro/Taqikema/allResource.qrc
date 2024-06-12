@@ -1,1 +1,10 @@
-<RCC/>
+<RCC>
+    <qresource prefix="/login">
+        <file>lib/bg1.jpg</file>
+        <file>lib/bg3.jpg</file>
+        <file>lib/close.png</file>
+        <file>lib/hide.png</file>
+        <file>lib/head.jpg</file>
+        <file>lib/shezhang.png</file>
+    </qresource>
+</RCC>
