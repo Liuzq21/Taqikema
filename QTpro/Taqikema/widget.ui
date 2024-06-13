@@ -16,10 +16,10 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>10</y>
-     <width>331</width>
-     <height>71</height>
+     <x>0</x>
+     <y>2</y>
+     <width>346</width>
+     <height>80</height>
     </rect>
    </property>
    <property name="text">
@@ -35,10 +35,10 @@
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>10</x>
+     <x>0</x>
      <y>81</y>
-     <width>331</width>
-     <height>131</height>
+     <width>346</width>
+     <height>140</height>
     </rect>
    </property>
    <property name="text">
@@ -61,16 +61,13 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">#label_4{
-	border-image: url(:/login/lib/head.jpg);
-	border-width:0px;
-	border-radius:33px;
-	border-style:solid;
-	border-color: rgb(255, 255, 255);
-}</string>
+    <string notr="true"/>
    </property>
    <property name="text">
     <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="allResource.qrc">:/login/lib/head3.png</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
@@ -85,6 +82,18 @@
      <height>20</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">border-style:solid;
+border-width:1px;
+border-top-color: rgba(255, 255, 255, 0);
+border-right-color: rgba(255, 255, 255, 0);
+border-left-color: rgba(255, 255, 255, 0);
+border-bottom-color: rgb(129, 129, 129);
+</string>
+   </property>
+   <property name="placeholderText">
+    <string>编号id</string>
+   </property>
   </widget>
   <widget class="QLineEdit" name="lineEdit_2">
    <property name="geometry">
@@ -94,6 +103,21 @@
      <width>113</width>
      <height>20</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-style:solid;
+border-width:1px;
+border-top-color: rgba(255, 255, 255, 0);
+border-right-color: rgba(255, 255, 255, 0);
+border-left-color: rgba(255, 255, 255, 0);
+border-bottom-color: rgb(129, 129, 129);
+</string>
+   </property>
+   <property name="echoMode">
+    <enum>QLineEdit::Password</enum>
+   </property>
+   <property name="placeholderText">
+    <string>密码</string>
    </property>
   </widget>
   <widget class="QWidget" name="horizontalLayoutWidget_2">
@@ -145,7 +169,7 @@ padding-top:2px;
 </string>
       </property>
       <property name="text">
-       <string>PushButton</string>
+       <string>登录</string>
       </property>
      </widget>
     </item>
@@ -198,6 +222,33 @@ padding-top:2px;
     </item>
    </layout>
   </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>350</width>
+     <height>225</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="allResource.qrc">:/login/lib/WhiteBackground.jpg</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <zorder>label_3</zorder>
+  <zorder>label</zorder>
+  <zorder>label_2</zorder>
+  <zorder>label_4</zorder>
+  <zorder>lineEdit</zorder>
+  <zorder>lineEdit_2</zorder>
+  <zorder>horizontalLayoutWidget_2</zorder>
+  <zorder>horizontalLayoutWidget</zorder>
  </widget>
  <resources>
   <include location="allResource.qrc"/>

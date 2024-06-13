@@ -31,6 +31,15 @@ Widget::Widget(QWidget *parent)
     systemtrayicon->setContextMenu(menu);
     connect(m_pShowAction,SIGNAL(triggered(bool)),this,SLOT(showwidget()));
     connect(m_pCloseAction,SIGNAL(triggered(bool)),this,SLOT(closewidget()));
+    //Taqikema ID文本框
+    QAction * searchAction = new QAction(ui->lineEdit);
+    searchAction->setIcon(QIcon(":/login/lib/id.png"));
+    ui->lineEdit->addAction(searchAction,QLineEdit::LeadingPosition);//表示action所在方位（左侧）。
+    //Taqikema 密码文本框
+    QAction * searchAction2 = new QAction(ui->lineEdit);
+    searchAction2->setIcon(QIcon(":/login/lib/R.png"));
+    ui->lineEdit_2->addAction(searchAction2,QLineEdit::LeadingPosition);//表示action所在方位（左侧）。
+
 
 }
 
@@ -73,5 +82,5 @@ void Widget::showwidget()
 
 void Widget::closewidget()
 {
-    this->close();
+    QApplication::quit();
 }

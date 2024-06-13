@@ -13,7 +13,7 @@
 
 https://blog.csdn.net/Fdog_/article/details/115864249  仿QQ（登录注册部署实现！！大佬！）
 
-https://blog.csdn.net/yyfgoodgame/article/details/109923752 python去除背景
+去除背景:https://www.remove.bg/zh/upload
 
 [网络编程之Socket详解 - 糯米粥 - 博客园 (cnblogs.com)](https://www.cnblogs.com/nsky/p/4501782.html) 
 

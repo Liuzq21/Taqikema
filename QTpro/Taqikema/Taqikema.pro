@@ -27,9 +27,18 @@ RESOURCES += \
     allResource.qrc
 
 DISTFILES += \
+    lib/R.png \
+    lib/WhiteBackground.jpg \
     lib/bg1.jpg \
+    lib/bg2.jpg \
     lib/bg3.jpg \
     lib/close.png \
     lib/head.jpg \
+    lib/head.png \
+    lib/head2.png \
+    lib/head3.png \
     lib/hide.png \
-    lib/shezhang.png
+    lib/id.png \
+    lib/shezhang.png \
+    lib/shuaidao.png \
+    lib/suo.png
