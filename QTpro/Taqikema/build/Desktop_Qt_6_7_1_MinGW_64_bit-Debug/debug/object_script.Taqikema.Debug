@@ -1,0 +1,10 @@
+debug/labelmenu.o
+debug/main.o
+debug/mymenu.o
+debug/taqikema.o
+debug/widget.o
+debug/qrc_allResource.o
+debug/moc_labelmenu.o
+debug/moc_mymenu.o
+debug/moc_taqikema.o
+debug/moc_widget.o

@@ -1,10 +1,9 @@
 #include "widget.h"
 #include "ui_widget.h"
 #include "taqikema.h"
+#include "mymenu.h"
 #include<QPoint>
 #include<QMouseEvent>
-#include<QMenu>
-
 #include <QSystemTrayIcon>
 
 Widget::Widget(QWidget *parent)
@@ -23,15 +22,8 @@ Widget::Widget(QWidget *parent)
     //显示图标
     systemtrayicon->show();
     // 菜单栏
-    menu = new QMenu(this);
-    m_pShowAction = new QAction("show");
-    m_pCloseAction = new QAction("exit");
-    menu->addAction(m_pShowAction);
-    menu->addSeparator();
-    menu->addAction(m_pCloseAction);
+    menu = new MyMenu(this);
     systemtrayicon->setContextMenu(menu);
-    connect(m_pShowAction,SIGNAL(triggered(bool)),this,SLOT(showwidget()));
-    connect(m_pCloseAction,SIGNAL(triggered(bool)),this,SLOT(closewidget()));
     //Taqikema ID文本框
     QAction * searchAction = new QAction(ui->lineEdit);
     searchAction->setIcon(QIcon(":/login/lib/id.png"));
@@ -40,8 +32,6 @@ Widget::Widget(QWidget *parent)
     QAction * searchAction2 = new QAction(ui->lineEdit);
     searchAction2->setIcon(QIcon(":/login/lib/R.png"));
     ui->lineEdit_2->addAction(searchAction2,QLineEdit::LeadingPosition);//表示action所在方位（左侧）。
-    // 子弹窗 塔奇克马
-    inTaqikema = false;
 
 }
 
@@ -77,19 +67,6 @@ void Widget::mouseMoveEvent(QMouseEvent* event)
     this->move(pos - diff_pos);
 }
 
-void Widget::showwidget()
-{
-    if(inTaqikema){
-        t->show();
-    }
-    else this->show();
-}
-
-void Widget::closewidget()
-{
-    QApplication::quit();
-}
-
 void Widget::on_pushButton_clicked()
 {
     // 这里要加上对账号密码的判断
@@ -98,7 +75,7 @@ void Widget::on_pushButton_clicked()
     // 登录成功，进入塔奇克马桌宠
     t = new Taqikema;
     t->show();
-    inTaqikema = true;
+    menu->changeWin(t);
     this->close();
 }
 

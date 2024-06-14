@@ -1,8 +1,8 @@
 #ifndef WIDGET_H
 #define WIDGET_H
 #include"taqikema.h"
+#include"mymenu.h"
 #include <QWidget>
-#include<QMenu>
 #include <QSystemTrayIcon>
 
 QT_BEGIN_NAMESPACE
@@ -28,9 +28,6 @@ private slots:
     void mousePressEvent(QMouseEvent* event) override;
     void mouseMoveEvent(QMouseEvent* event) override;
 
-    void showwidget();
-    void closewidget();
-
     void on_pushButton_clicked();
 
 private:
@@ -39,12 +36,9 @@ private:
     QPoint window_pos;
     QPoint mouse_pos;
     QSystemTrayIcon  * systemtrayicon;  //系统托盘
-    QMenu * menu;  // 菜单栏
-    QAction *m_pShowAction;
-    QAction *m_pCloseAction;
+    MyMenu* menu;  // 菜单栏
+
     // 子弹窗-塔奇克马
     Taqikema *t;
-    bool inTaqikema;
-
 };
 #endif // WIDGET_H
