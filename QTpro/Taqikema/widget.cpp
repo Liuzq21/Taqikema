@@ -5,6 +5,7 @@
 #include<QPoint>
 #include<QMouseEvent>
 #include <QSystemTrayIcon>
+#include<QMovie>
 
 Widget::Widget(QWidget *parent)
     : QWidget(parent)
@@ -12,6 +13,7 @@ Widget::Widget(QWidget *parent)
 {
     ui->setupUi(this);
     this->setWindowFlags(Qt::SplashScreen|Qt::WindowStaysOnTopHint|Qt::FramelessWindowHint);
+    ui->label_5->setVisible(false);
     //初始化系统托盘
     systemtrayicon = new QSystemTrayIcon(this);
     QIcon icon = QIcon(":/login/lib/shezhang.png");
@@ -73,6 +75,19 @@ void Widget::on_pushButton_clicked()
 
 
     // 登录成功，进入塔奇克马桌宠
+    // ui->label_5->setVisible(true);
+    // QMovie *movie = new QMovie(":/login/lib/hello.gif");
+    // ui->label_5->setMovie(movie); // 1. 设置要显示的 GIF 动画图片
+    // movie->start();         // 2. 启动动画
+    // ui->label_5->show();
+
+    // QObject::connect(movie, &QMovie::frameChanged, [=](int frameNumber) {
+    //     // GIF 动画执行一次就结束
+    //     if (frameNumber == movie->frameCount() - 1) {
+    //         movie->stop();
+    //     }
+    // });
+
     t = new Taqikema;
     t->show();
     menu->changeWin(t);

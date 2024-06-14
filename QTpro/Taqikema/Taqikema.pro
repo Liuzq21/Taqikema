@@ -35,6 +35,7 @@ RESOURCES += \
 
 DISTFILES += \
     lib/R.png \
+    lib/Taqikema.gif \
     lib/WhiteBackground.jpg \
     lib/bg1.jpg \
     lib/bg2.jpg \
@@ -44,6 +45,7 @@ DISTFILES += \
     lib/head.png \
     lib/head2.png \
     lib/head3.png \
+    lib/hello.gif \
     lib/hide.png \
     lib/id.png \
     lib/shezhang.png \

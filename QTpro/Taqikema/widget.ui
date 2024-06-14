@@ -241,6 +241,19 @@ padding-top:2px;
     <bool>true</bool>
    </property>
   </widget>
+  <widget class="QLabel" name="label_5">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>350</width>
+     <height>225</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>TextLabel</string>
+   </property>
+  </widget>
   <zorder>label_3</zorder>
   <zorder>label</zorder>
   <zorder>label_2</zorder>
@@ -249,6 +262,7 @@ padding-top:2px;
   <zorder>lineEdit_2</zorder>
   <zorder>horizontalLayoutWidget_2</zorder>
   <zorder>horizontalLayoutWidget</zorder>
+  <zorder>label_5</zorder>
  </widget>
  <resources>
   <include location="allResource.qrc"/>

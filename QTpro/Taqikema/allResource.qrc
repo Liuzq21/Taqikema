@@ -14,5 +14,7 @@
         <file>lib/shuaidao.png</file>
         <file>lib/R.png</file>
         <file>lib/WhiteBackground.jpg</file>
+        <file>lib/hello.gif</file>
+        <file>lib/Taqikema.gif</file>
     </qresource>
 </RCC>

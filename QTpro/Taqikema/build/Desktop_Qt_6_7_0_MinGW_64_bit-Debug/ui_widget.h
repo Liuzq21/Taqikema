@@ -41,6 +41,8 @@ public:
     QSpacerItem *horizontalSpacer;
     QToolButton *toolButton_2;
     QToolButton *toolButton;
+    QLabel *label_3;
+    QLabel *label_5;
 
     void setupUi(QWidget *Widget)
     {
@@ -49,31 +51,41 @@ public:
         Widget->resize(350, 225);
         label = new QLabel(Widget);
         label->setObjectName("label");
-        label->setGeometry(QRect(10, 10, 331, 71));
+        label->setGeometry(QRect(0, 2, 346, 80));
         label->setPixmap(QPixmap(QString::fromUtf8(":/login/lib/bg1.jpg")));
         label->setScaledContents(true);
         label_2 = new QLabel(Widget);
         label_2->setObjectName("label_2");
-        label_2->setGeometry(QRect(10, 81, 331, 131));
+        label_2->setGeometry(QRect(0, 81, 346, 140));
         label_2->setPixmap(QPixmap(QString::fromUtf8(":/login/lib/bg3.jpg")));
         label_2->setScaledContents(true);
         label_4 = new QLabel(Widget);
         label_4->setObjectName("label_4");
         label_4->setGeometry(QRect(130, 50, 91, 61));
-        label_4->setStyleSheet(QString::fromUtf8("#label_4{\n"
-"	border-image: url(:/login/lib/head.jpg);\n"
-"	border-width:0px;\n"
-"	border-radius:33px;\n"
-"	border-style:solid;\n"
-"	border-color: rgb(255, 255, 255);\n"
-"}"));
+        label_4->setStyleSheet(QString::fromUtf8(""));
+        label_4->setPixmap(QPixmap(QString::fromUtf8(":/login/lib/head3.png")));
         label_4->setScaledContents(true);
         lineEdit = new QLineEdit(Widget);
         lineEdit->setObjectName("lineEdit");
         lineEdit->setGeometry(QRect(120, 130, 113, 20));
+        lineEdit->setStyleSheet(QString::fromUtf8("border-style:solid;\n"
+"border-width:1px;\n"
+"border-top-color: rgba(255, 255, 255, 0);\n"
+"border-right-color: rgba(255, 255, 255, 0);\n"
+"border-left-color: rgba(255, 255, 255, 0);\n"
+"border-bottom-color: rgb(129, 129, 129);\n"
+""));
         lineEdit_2 = new QLineEdit(Widget);
         lineEdit_2->setObjectName("lineEdit_2");
         lineEdit_2->setGeometry(QRect(120, 160, 113, 20));
+        lineEdit_2->setStyleSheet(QString::fromUtf8("border-style:solid;\n"
+"border-width:1px;\n"
+"border-top-color: rgba(255, 255, 255, 0);\n"
+"border-right-color: rgba(255, 255, 255, 0);\n"
+"border-left-color: rgba(255, 255, 255, 0);\n"
+"border-bottom-color: rgb(129, 129, 129);\n"
+""));
+        lineEdit_2->setEchoMode(QLineEdit::Password);
         horizontalLayoutWidget_2 = new QWidget(Widget);
         horizontalLayoutWidget_2->setObjectName("horizontalLayoutWidget_2");
         horizontalLayoutWidget_2->setGeometry(QRect(40, 190, 271, 31));
@@ -141,6 +153,23 @@ public:
 
         horizontalLayout->addWidget(toolButton);
 
+        label_3 = new QLabel(Widget);
+        label_3->setObjectName("label_3");
+        label_3->setGeometry(QRect(0, 0, 350, 225));
+        label_3->setPixmap(QPixmap(QString::fromUtf8(":/login/lib/WhiteBackground.jpg")));
+        label_3->setScaledContents(true);
+        label_5 = new QLabel(Widget);
+        label_5->setObjectName("label_5");
+        label_5->setGeometry(QRect(0, 0, 350, 225));
+        label_3->raise();
+        label->raise();
+        label_2->raise();
+        label_4->raise();
+        lineEdit->raise();
+        lineEdit_2->raise();
+        horizontalLayoutWidget_2->raise();
+        horizontalLayoutWidget->raise();
+        label_5->raise();
 
         retranslateUi(Widget);
 
@@ -153,11 +182,15 @@ public:
         label->setText(QString());
         label_2->setText(QString());
         label_4->setText(QString());
+        lineEdit->setPlaceholderText(QCoreApplication::translate("Widget", "\347\274\226\345\217\267id", nullptr));
+        lineEdit_2->setPlaceholderText(QCoreApplication::translate("Widget", "\345\257\206\347\240\201", nullptr));
         checkBox_2->setText(QCoreApplication::translate("Widget", "\350\207\252\345\212\250\347\231\273\345\275\225", nullptr));
         checkBox->setText(QCoreApplication::translate("Widget", "\350\256\260\344\275\217\345\257\206\347\240\201", nullptr));
-        pushButton->setText(QCoreApplication::translate("Widget", "PushButton", nullptr));
+        pushButton->setText(QCoreApplication::translate("Widget", "\347\231\273\345\275\225", nullptr));
         toolButton_2->setText(QCoreApplication::translate("Widget", "...", nullptr));
         toolButton->setText(QCoreApplication::translate("Widget", "...", nullptr));
+        label_3->setText(QString());
+        label_5->setText(QCoreApplication::translate("Widget", "TextLabel", nullptr));
     } // retranslateUi
 
 };
