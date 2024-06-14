@@ -9,13 +9,20 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    labelmenu.cpp \
     main.cpp \
+    mymenu.cpp \
+    taqikema.cpp \
     widget.cpp
 
 HEADERS += \
+    labelmenu.h \
+    mymenu.h \
+    taqikema.h \
     widget.h
 
 FORMS += \
+    taqikema.ui \
     widget.ui
 
 # Default rules for deployment.

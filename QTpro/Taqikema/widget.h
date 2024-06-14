@@ -1,6 +1,6 @@
 #ifndef WIDGET_H
 #define WIDGET_H
-
+#include"taqikema.h"
 #include <QWidget>
 #include<QMenu>
 #include <QSystemTrayIcon>
@@ -31,6 +31,8 @@ private slots:
     void showwidget();
     void closewidget();
 
+    void on_pushButton_clicked();
+
 private:
     Ui::Widget *ui;
     QPoint diff_pos;  // 鼠标和窗口的相对位移
@@ -40,7 +42,9 @@ private:
     QMenu * menu;  // 菜单栏
     QAction *m_pShowAction;
     QAction *m_pCloseAction;
-
+    // 子弹窗-塔奇克马
+    Taqikema *t;
+    bool inTaqikema;
 
 };
 #endif // WIDGET_H

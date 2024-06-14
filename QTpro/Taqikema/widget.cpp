@@ -1,5 +1,6 @@
 #include "widget.h"
 #include "ui_widget.h"
+#include "taqikema.h"
 #include<QPoint>
 #include<QMouseEvent>
 #include<QMenu>
@@ -39,7 +40,8 @@ Widget::Widget(QWidget *parent)
     QAction * searchAction2 = new QAction(ui->lineEdit);
     searchAction2->setIcon(QIcon(":/login/lib/R.png"));
     ui->lineEdit_2->addAction(searchAction2,QLineEdit::LeadingPosition);//表示action所在方位（左侧）。
-
+    // 子弹窗 塔奇克马
+    inTaqikema = false;
 
 }
 
@@ -77,10 +79,26 @@ void Widget::mouseMoveEvent(QMouseEvent* event)
 
 void Widget::showwidget()
 {
-    this->show();
+    if(inTaqikema){
+        t->show();
+    }
+    else this->show();
 }
 
 void Widget::closewidget()
 {
     QApplication::quit();
 }
+
+void Widget::on_pushButton_clicked()
+{
+    // 这里要加上对账号密码的判断
+
+
+    // 登录成功，进入塔奇克马桌宠
+    t = new Taqikema;
+    t->show();
+    inTaqikema = true;
+    this->close();
+}
+
