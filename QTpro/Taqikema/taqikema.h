@@ -2,7 +2,9 @@
 #define TAQIKEMA_H
 
 #include <QWidget>
+#include<QMenu>
 #include "labelmenu.h"
+#include "mymenu.h"
 
 namespace Ui {
 class Taqikema;
@@ -13,7 +15,7 @@ class Taqikema : public QWidget
     Q_OBJECT
 
 public:
-    explicit Taqikema(QWidget *parent = nullptr);
+    explicit Taqikema(MyMenu* _menu=nullptr,QWidget *parent = nullptr);
     ~Taqikema();
 
 private slots:
@@ -27,9 +29,10 @@ private:
     QPoint diff_pos;  // 鼠标和窗口的相对位移
     QPoint window_pos;
     QPoint mouse_pos;
-    QMenu *menu = new QMenu(this); // 菜单变量
+    MyMenu *menu; // 菜单变量
 
-    void initMenu(); //初始化右键菜单
+
+
 };
 
 #endif // TAQIKEMA_H

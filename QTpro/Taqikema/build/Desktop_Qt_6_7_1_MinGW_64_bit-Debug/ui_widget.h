@@ -42,6 +42,7 @@ public:
     QToolButton *toolButton_2;
     QToolButton *toolButton;
     QLabel *label_3;
+    QLabel *label_5;
 
     void setupUi(QWidget *Widget)
     {
@@ -157,6 +158,9 @@ public:
         label_3->setGeometry(QRect(0, 0, 350, 225));
         label_3->setPixmap(QPixmap(QString::fromUtf8(":/login/lib/WhiteBackground.jpg")));
         label_3->setScaledContents(true);
+        label_5 = new QLabel(Widget);
+        label_5->setObjectName("label_5");
+        label_5->setGeometry(QRect(0, 0, 350, 225));
         label_3->raise();
         label->raise();
         label_2->raise();
@@ -165,6 +169,7 @@ public:
         lineEdit_2->raise();
         horizontalLayoutWidget_2->raise();
         horizontalLayoutWidget->raise();
+        label_5->raise();
 
         retranslateUi(Widget);
 
@@ -185,6 +190,7 @@ public:
         toolButton_2->setText(QCoreApplication::translate("Widget", "...", nullptr));
         toolButton->setText(QCoreApplication::translate("Widget", "...", nullptr));
         label_3->setText(QString());
+        label_5->setText(QCoreApplication::translate("Widget", "TextLabel", nullptr));
     } // retranslateUi
 
 };

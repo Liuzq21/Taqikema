@@ -6,6 +6,7 @@
 #include<QMouseEvent>
 #include <QSystemTrayIcon>
 #include<QMovie>
+#include <QThread>
 
 Widget::Widget(QWidget *parent)
     : QWidget(parent)
@@ -75,22 +76,25 @@ void Widget::on_pushButton_clicked()
 
 
     // 登录成功，进入塔奇克马桌宠
-    // ui->label_5->setVisible(true);
-    // QMovie *movie = new QMovie(":/login/lib/hello.gif");
-    // ui->label_5->setMovie(movie); // 1. 设置要显示的 GIF 动画图片
-    // movie->start();         // 2. 启动动画
-    // ui->label_5->show();
+    ui->label_5->setVisible(true);
+    QMovie *movie = new QMovie(":/login/lib/hello.gif");
+    ui->label_5->setMovie(movie); // 1. 设置要显示的 GIF 动画图片
+    movie->start();         // 2. 启动动画
+    ui->label_5->setScaledContents(true); // 自适应大小
+    ui->label_5->show();
 
-    // QObject::connect(movie, &QMovie::frameChanged, [=](int frameNumber) {
-    //     // GIF 动画执行一次就结束
-    //     if (frameNumber == movie->frameCount() - 1) {
-    //         movie->stop();
-    //     }
-    // });
+    QObject::connect(movie, &QMovie::frameChanged, [=](int frameNumber) {
+        // GIF 动画执行一次就结束
+        if (frameNumber == movie->frameCount() - 1) {
+            movie->stop();
+            QThread::msleep(1000);  // sleep 1s
+            t = new Taqikema(menu);
+            t->show();
+            menu->changeWin(t);
+            this->close();
+        }
+    });
 
-    t = new Taqikema;
-    t->show();
-    menu->changeWin(t);
-    this->close();
+
 }
 

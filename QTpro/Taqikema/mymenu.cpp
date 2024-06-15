@@ -5,15 +5,15 @@ MyMenu::MyMenu(): QMenu(nullptr), win(nullptr){}
 
 MyMenu::MyMenu(QWidget *parent): QMenu(parent), win(parent){
     // 菜单栏
-
     m_pMinAction = addAction("minilize");
     m_pShowAction = addAction("show");
+    addSeparator();
     m_pCloseAction = addAction("exit");
 
-    /*menu->(m_pMinAction);
-    menu->(m_pShowAction);
-    menu->addSeparator();
-    menu->addAction(m_pCloseAction);*/
+    // menu->addAction(m_pMinAction);
+    // menu->addAction(m_pShowAction);
+    // menu->addSeparator();
+    // menu->addAction(m_pCloseAction);
 
 
     // connect

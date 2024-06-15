@@ -9,7 +9,7 @@ class MyMenu : public QMenu
     Q_OBJECT
 public:
     MyMenu();
-    explicit MyMenu(QWidget *parent = nullptr);
+    explicit MyMenu(QWidget *parent);
     ~MyMenu();
 
     void changeWin(QWidget* newWin);

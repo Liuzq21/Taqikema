@@ -4,14 +4,19 @@
 #include<QPoint>
 #include<QMouseEvent>
 #include<QMovie>
+#include<QAction>
 
-Taqikema::Taqikema(QWidget *parent)
-    : QWidget(parent)
+Taqikema::Taqikema(MyMenu* _menu, QWidget *parent)
+    : menu(_menu),QWidget(parent)
     , ui(new Ui::Taqikema)
 {
     ui->setupUi(this);
     this->setWindowFlags(Qt::SplashScreen|Qt::WindowStaysOnTopHint|Qt::FramelessWindowHint); // 取消菜单栏
     this->setAttribute(Qt::WA_TranslucentBackground,true); //设置背景透明
+
+    // label右键菜单
+    connect(ui->label,SIGNAL(clicked_right()),this,SLOT(right_menu())); //连接label标签点击事件，此处不连接就不会弹出右键菜单
+
     // 欢迎gif
     /*QLabel *label = new QLabel();
     QMovie *movie = new QMovie("/Users/Biao/Desktop/x.gif");
@@ -26,12 +31,15 @@ Taqikema::Taqikema(QWidget *parent)
         }
     });*/
 
-    // 待机gif
-    ui->label ->setPixmap(QPixmap(":/login/lib/head3.png"));
-    ui->label ->setScaledContents(true);
 
-    // label右键菜单
-    initMenu();
+
+    // 待机gif-------这个gif还不行，有黑底，而且一卡一卡很不连贯
+    ui->label->setStyleSheet("background:transparent");
+    QMovie* wait = new QMovie(":/login/lib/Taqikema.gif");
+    ui->label ->setMovie(wait);
+    wait->start();
+    ui->label ->setScaledContents(true);
+    ui->label->show();
 
 }
 
@@ -59,20 +67,6 @@ void Taqikema::resizeEvent(QResizeEvent * ev)
     ui->label->resize(this->size());
 }
 
-//初始化右键菜单
-void Taqikema::initMenu(){
-    /* 创建右键菜单 */
-    QAction *test_menu = new QAction("测试 (&A)",this); //添加测试功能菜单，快捷键A
-
-    /* 添加菜单项 */
-    menu->addAction(test_menu);
-
-    /* 连接槽函数 */
-    connect(ui->label,SIGNAL(clicked_right()),this,SLOT(right_menu())); //连接label标签点击事件，此处不连接就不会弹出右键菜单
-    //connect(test_menu,SIGNAL(triggered()),this,SLOT(test())); //连接 测试 功能
-
-}
-
 //弹出右键菜单
 void Taqikema::right_menu(){
     //获取光标所在位置
@@ -85,6 +79,6 @@ void Taqikema::right_menu(){
 
     //在光标位置弹出菜单
     menu->setGeometry(x,y,w,h);
-    menu->show();
+    menu->exec();  // 如果用menu->show()将只会展示菜单栏第一个QAction！！
 }
 

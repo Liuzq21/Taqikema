@@ -71,6 +71,7 @@ OBJECTS       = release/labelmenu.o \
 		release/moc_widget.o
 
 DIST          = lib/R.png \
+		lib/Taqikema.gif \
 		lib/WhiteBackground.jpg \
 		lib/bg1.jpg \
 		lib/bg2.jpg \
@@ -80,6 +81,7 @@ DIST          = lib/R.png \
 		lib/head.png \
 		lib/head2.png \
 		lib/head3.png \
+		lib/hello.gif \
 		lib/hide.png \
 		lib/id.png \
 		lib/shezhang.png \
@@ -136,12 +138,14 @@ compiler_rcc_clean:
 	-$(DEL_FILE) release\qrc_allResource.cpp
 release/qrc_allResource.cpp: ../../allResource.qrc \
 		E:/Qt/6.7.1/mingw_64/bin/rcc.exe \
+		../../lib/hello.gif \
 		../../lib/bg3.jpg \
 		../../lib/head.png \
 		../../lib/bg1.jpg \
 		../../lib/shuaidao.png \
 		../../lib/shezhang.png \
 		../../lib/bg2.jpg \
+		../../lib/Taqikema.gif \
 		../../lib/head.jpg \
 		../../lib/head2.png \
 		../../lib/id.png \
@@ -754,6 +758,7 @@ release/moc_taqikema.cpp: ../../taqikema.h \
 		E:/Qt/6.7.1/mingw_64/include/QtGui/QAction \
 		E:/Qt/6.7.1/mingw_64/include/QtWidgets/QMenu \
 		E:/Qt/6.7.1/mingw_64/include/QtWidgets/qmenu.h \
+		../../mymenu.h \
 		release/moc_predefs.h \
 		E:/Qt/6.7.1/mingw_64/bin/moc.exe
 	E:\Qt\6.7.1\mingw_64\bin\moc.exe $(DEFINES) --include D:/a_myself/cpp/QTTaqikema/QTpro/Taqikema/build/Desktop_Qt_6_7_1_MinGW_64_bit-Debug/release/moc_predefs.h -IE:/Qt/6.7.1/mingw_64/mkspecs/win32-g++ -ID:/a_myself/cpp/QTTaqikema/QTpro/Taqikema -IE:/Qt/6.7.1/mingw_64/include -IE:/Qt/6.7.1/mingw_64/include/QtWidgets -IE:/Qt/6.7.1/mingw_64/include/QtGui -IE:/Qt/6.7.1/mingw_64/include/QtCore -I. -IE:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IE:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IE:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IE:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IE:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IE:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\..\taqikema.h -o release\moc_taqikema.cpp
@@ -1783,7 +1788,8 @@ release/mymenu.o: ../../mymenu.cpp ../../mymenu.h \
 		E:/Qt/6.7.1/mingw_64/include/QtGui/qguiapplication_platform.h \
 		E:/Qt/6.7.1/mingw_64/include/QtWidgets/QWidget \
 		E:/Qt/6.7.1/mingw_64/include/QtGui/QAction \
-		E:/Qt/6.7.1/mingw_64/include/QtCore/QDebug
+		E:/Qt/6.7.1/mingw_64/include/QtWidgets/QApplication \
+		E:/Qt/6.7.1/mingw_64/include/QtWidgets/qapplication.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\mymenu.o ..\..\mymenu.cpp
 
 release/taqikema.o: ../../taqikema.cpp ../../taqikema.h \
@@ -1984,6 +1990,7 @@ release/taqikema.o: ../../taqikema.cpp ../../taqikema.h \
 		E:/Qt/6.7.1/mingw_64/include/QtGui/QAction \
 		E:/Qt/6.7.1/mingw_64/include/QtWidgets/QMenu \
 		E:/Qt/6.7.1/mingw_64/include/QtWidgets/qmenu.h \
+		../../mymenu.h \
 		ui_taqikema.h \
 		E:/Qt/6.7.1/mingw_64/include/QtCore/QPoint \
 		E:/Qt/6.7.1/mingw_64/include/QtGui/QMovie \
@@ -2207,7 +2214,24 @@ release/widget.o: ../../widget.cpp ../../widget.h \
 		E:/Qt/6.7.1/mingw_64/include/QtWidgets/QSystemTrayIcon \
 		E:/Qt/6.7.1/mingw_64/include/QtWidgets/qsystemtrayicon.h \
 		ui_widget.h \
-		E:/Qt/6.7.1/mingw_64/include/QtCore/QPoint
+		E:/Qt/6.7.1/mingw_64/include/QtCore/QPoint \
+		E:/Qt/6.7.1/mingw_64/include/QtGui/QMovie \
+		E:/Qt/6.7.1/mingw_64/include/QtGui/qmovie.h \
+		E:/Qt/6.7.1/mingw_64/include/QtGui/qimagereader.h \
+		E:/Qt/6.7.1/mingw_64/include/QtGui/qimageiohandler.h \
+		E:/Qt/6.7.1/mingw_64/include/QtCore/qplugin.h \
+		E:/Qt/6.7.1/mingw_64/include/QtCore/qpointer.h \
+		E:/Qt/6.7.1/mingw_64/include/QtCore/qjsonobject.h \
+		E:/Qt/6.7.1/mingw_64/include/QtCore/qjsonvalue.h \
+		E:/Qt/6.7.1/mingw_64/include/QtCore/qcborvalue.h \
+		E:/Qt/6.7.1/mingw_64/include/QtCore/qdatetime.h \
+		E:/Qt/6.7.1/mingw_64/include/QtCore/qcalendar.h \
+		E:/Qt/6.7.1/mingw_64/include/QtCore/qcborcommon.h \
+		E:/Qt/6.7.1/mingw_64/include/QtCore/qregularexpression.h \
+		E:/Qt/6.7.1/mingw_64/include/QtCore/quuid.h \
+		E:/Qt/6.7.1/mingw_64/include/QtCore/q20algorithm.h \
+		E:/Qt/6.7.1/mingw_64/include/QtCore/qfactoryinterface.h \
+		E:/Qt/6.7.1/mingw_64/include/QtCore/QThread
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\widget.o ..\..\widget.cpp
 
 release/qrc_allResource.o: release/qrc_allResource.cpp 
