@@ -1,9 +1,12 @@
+release/chathome.o
 release/labelmenu.o
 release/main.o
+release/myglobal.o
 release/mymenu.o
 release/taqikema.o
 release/widget.o
 release/qrc_allResource.o
+release/moc_chathome.o
 release/moc_labelmenu.o
 release/moc_mymenu.o
 release/moc_taqikema.o

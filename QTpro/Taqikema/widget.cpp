@@ -1,12 +1,13 @@
 #include "widget.h"
 #include "ui_widget.h"
 #include "taqikema.h"
-#include "mymenu.h"
+#include <QMenu>
 #include<QPoint>
 #include<QMouseEvent>
 #include <QSystemTrayIcon>
 #include<QMovie>
 #include <QThread>
+#include <QMessageBox>
 
 Widget::Widget(QWidget *parent)
     : QWidget(parent)
@@ -25,16 +26,26 @@ Widget::Widget(QWidget *parent)
     //显示图标
     systemtrayicon->show();
     // 菜单栏
-    menu = new MyMenu(this);
+    menu = new QMenu(this);
+    m_pMinAction = new QAction("min");
+    m_pShowAction = new QAction("show");
+    m_pCloseAction = new QAction("exit");
+    menu->addAction(m_pMinAction);
+    menu->addAction(m_pShowAction);
+    menu->addAction(m_pCloseAction);
     systemtrayicon->setContextMenu(menu);
     //Taqikema ID文本框
-    QAction * searchAction = new QAction(ui->lineEdit);
+    QAction * searchAction = new QAction(ui->uName);
     searchAction->setIcon(QIcon(":/login/lib/id.png"));
-    ui->lineEdit->addAction(searchAction,QLineEdit::LeadingPosition);//表示action所在方位（左侧）。
+    ui->uName->addAction(searchAction,QLineEdit::LeadingPosition);//表示action所在方位（左侧）。
     //Taqikema 密码文本框
-    QAction * searchAction2 = new QAction(ui->lineEdit);
+    QAction * searchAction2 = new QAction(ui->lineEdit_2);
     searchAction2->setIcon(QIcon(":/login/lib/R.png"));
     ui->lineEdit_2->addAction(searchAction2,QLineEdit::LeadingPosition);//表示action所在方位（左侧）。
+
+    connect(m_pMinAction,SIGNAL(triggered(bool)),this,SLOT(minwidget()));
+    connect(m_pShowAction,SIGNAL(triggered(bool)),this,SLOT(showwidget()));
+    connect(m_pCloseAction,SIGNAL(triggered(bool)),this,SLOT(closewidget()));
 
 }
 
@@ -72,6 +83,11 @@ void Widget::mouseMoveEvent(QMouseEvent* event)
 
 void Widget::on_pushButton_clicked()
 {
+    QString name = ui->uName->text();
+    if(name == ""){
+        QMessageBox::warning(this,"Warning","Send Message should not be null !");
+        return;
+    }
     // 这里要加上对账号密码的判断
 
 
@@ -88,9 +104,8 @@ void Widget::on_pushButton_clicked()
         if (frameNumber == movie->frameCount() - 1) {
             movie->stop();
             QThread::msleep(1000);  // sleep 1s
-            t = new Taqikema(menu);
+            t = new Taqikema(name,nullptr);
             t->show();
-            menu->changeWin(t);
             this->close();
         }
     });
@@ -98,3 +113,16 @@ void Widget::on_pushButton_clicked()
 
 }
 
+void Widget::minwidget(){
+    this->showMinimized();
+    // qDebug() << "Custom menu item clicked!";
+}
+
+void Widget::showwidget(){
+    this->showNormal();
+}
+
+
+void Widget::closewidget(){
+    QApplication::quit();
+}

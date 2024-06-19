@@ -1,4 +1,4 @@
-QT       += core gui
+QT       += core gui network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -9,6 +9,7 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    chathome.cpp \
     labelmenu.cpp \
     main.cpp \
     mymenu.cpp \
@@ -16,12 +17,14 @@ SOURCES += \
     widget.cpp
 
 HEADERS += \
+    chathome.h \
     labelmenu.h \
     mymenu.h \
     taqikema.h \
     widget.h
 
 FORMS += \
+    chathome.ui \
     taqikema.ui \
     widget.ui
 

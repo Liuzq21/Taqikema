@@ -73,7 +73,7 @@
     <bool>true</bool>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit">
+  <widget class="QLineEdit" name="uName">
    <property name="geometry">
     <rect>
      <x>120</x>
@@ -258,7 +258,7 @@ padding-top:2px;
   <zorder>label</zorder>
   <zorder>label_2</zorder>
   <zorder>label_4</zorder>
-  <zorder>lineEdit</zorder>
+  <zorder>uName</zorder>
   <zorder>lineEdit_2</zorder>
   <zorder>horizontalLayoutWidget_2</zorder>
   <zorder>horizontalLayoutWidget</zorder>

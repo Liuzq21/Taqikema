@@ -175,3 +175,32 @@ int main() {
 
 }
 ```
+
+### Qt 中 网络编程
+
+快捷键：F2 跳转到函数定义，F4，h和cpp文件的切换。末尾Alt+Enter快速实现函数
+
+.pro文件中 添加 
+
+```c++
+QT       += core gui network
+```
+
+网络编程的头文件
+
+```c++
+#include<QUdpSocket>
+// 功能待补充：
+udpSocket->bind(port, QUdpSocket::ShareAddress | QUdpSocket::ReuseAddressHint);
+
+// broadcast msg
+    udpSocket->writeDatagram(array.data(), array.size(), QHostAddress::Broadcast, this->port);
+    
+```
+
+## 目前的问题
+
+1、发送消息是报错内存溢出——解决咯！2024-06-19 11:27
+
+2、退出会话窗口时，整个程序跟着退出
+

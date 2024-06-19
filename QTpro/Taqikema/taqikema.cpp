@@ -1,19 +1,21 @@
 #include "taqikema.h"
 #include "ui_taqikema.h"
 #include "labelmenu.h"
+#include "mymenu.h"
 #include<QPoint>
 #include<QMouseEvent>
 #include<QMovie>
 #include<QAction>
 
-Taqikema::Taqikema(MyMenu* _menu, QWidget *parent)
-    : menu(_menu),QWidget(parent)
+Taqikema::Taqikema(QString _uName, QWidget *parent)
+    : uName(_uName), QWidget(parent)
     , ui(new Ui::Taqikema)
 {
     ui->setupUi(this);
     this->setWindowFlags(Qt::SplashScreen|Qt::WindowStaysOnTopHint|Qt::FramelessWindowHint); // 取消菜单栏
     this->setAttribute(Qt::WA_TranslucentBackground,true); //设置背景透明
 
+    menu = new MyMenu(this);
     // label右键菜单
     connect(ui->label,SIGNAL(clicked_right()),this,SLOT(right_menu())); //连接label标签点击事件，此处不连接就不会弹出右键菜单
 
@@ -46,6 +48,11 @@ Taqikema::Taqikema(MyMenu* _menu, QWidget *parent)
 Taqikema::~Taqikema()
 {
     delete ui;
+}
+
+QString Taqikema::getUserName()
+{
+    return this->uName;
 }
 
 void Taqikema::mousePressEvent(QMouseEvent* event)

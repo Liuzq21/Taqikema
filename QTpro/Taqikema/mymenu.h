@@ -4,26 +4,33 @@
 #include <QWidget>
 #include <QAction>
 
+#include "chathome.h"
+
+class Taqikema;
+
 class MyMenu : public QMenu
 {
     Q_OBJECT
 public:
     MyMenu();
-    explicit MyMenu(QWidget *parent);
+    explicit MyMenu(Taqikema* t);
     ~MyMenu();
 
-    void changeWin(QWidget* newWin);
 
 private slots:
     void minwidget();
     void showwidget();
     void closewidget();
+    void openChatHome();
 
 private:
-    QWidget *win;
     QAction *m_pMinAction;
     QAction *m_pShowAction;
     QAction *m_pCloseAction;
+    QAction *m_pChatHomeAction;
+
+    QString uName;
+    ChatHome *ch;
 };
 
 #endif // MYMENU_H
