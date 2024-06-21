@@ -47,7 +47,7 @@ private:
     QAction *m_pMinAction;
     QMenu *menu;
 
-    Taqikema *t;
+
 
 };
 #endif // WIDGET_H

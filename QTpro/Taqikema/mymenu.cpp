@@ -4,11 +4,13 @@
 #include "taqikema.h"
 #include<QApplication>
 
+
 MyMenu::MyMenu(): QMenu(nullptr){}
 
 MyMenu::MyMenu(Taqikema* t): QMenu(nullptr) {
-
+    this->window = t;
     this->uName = t->getUserName();
+    this->chOpened= false;
     // 菜单栏
     m_pChatHomeAction = addAction("ChatHome");
     m_pMinAction = addAction("Minilize");
@@ -31,8 +33,13 @@ MyMenu::MyMenu(Taqikema* t): QMenu(nullptr) {
 }
 
 void MyMenu::openChatHome(){
-    ch = new ChatHome(this->uName); // 关闭的时候记得释放
-    ch->show();
+    if(!this->chOpened)
+    {
+        ChatHome *ch;
+        ch = new ChatHome(this->uName); // 关闭的时候记得释放
+        this->chOpened = true;
+        ch->show();
+    }
 }
 
 MyMenu::~MyMenu(){

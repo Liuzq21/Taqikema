@@ -1,7 +1,6 @@
 debug/chathome.o
 debug/labelmenu.o
 debug/main.o
-debug/myglobal.o
 debug/mymenu.o
 debug/taqikema.o
 debug/widget.o

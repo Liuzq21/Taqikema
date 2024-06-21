@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QUdpSocket>
 #include"taqikema.h"
+
 namespace Ui {
 class ChatHome;
 }
@@ -23,7 +24,6 @@ public:
     QString getMsg();  // 获取聊天信息
     void userEnter(QString username);  // 处理用户进入
     void userLeft(QString username, QString time);  // 处理用户离开
-
 
 
 private slots:

@@ -6,6 +6,7 @@
 #include<QMouseEvent>
 #include<QMovie>
 #include<QAction>
+#include <QSystemTrayIcon>
 
 Taqikema::Taqikema(QString _uName, QWidget *parent)
     : uName(_uName), QWidget(parent)
@@ -14,8 +15,19 @@ Taqikema::Taqikema(QString _uName, QWidget *parent)
     ui->setupUi(this);
     this->setWindowFlags(Qt::SplashScreen|Qt::WindowStaysOnTopHint|Qt::FramelessWindowHint); // 取消菜单栏
     this->setAttribute(Qt::WA_TranslucentBackground,true); //设置背景透明
+    //初始化系统托盘
+    systemtrayicon = new QSystemTrayIcon(this);
+    QIcon icon = QIcon(":/login/lib/shezhang.png");
+    //添加图标
+    systemtrayicon->setIcon(icon);
+    //当鼠标悬浮，显示文字
+    systemtrayicon->setToolTip("Taqikema");
+    //显示图标
+    systemtrayicon->show();
 
     menu = new MyMenu(this);
+    systemtrayicon->setContextMenu(menu);
+
     // label右键菜单
     connect(ui->label,SIGNAL(clicked_right()),this,SLOT(right_menu())); //连接label标签点击事件，此处不连接就不会弹出右键菜单
 
@@ -32,8 +44,6 @@ Taqikema::Taqikema(QString _uName, QWidget *parent)
             movie->stop();
         }
     });*/
-
-
 
     // 待机gif-------这个gif还不行，有黑底，而且一卡一卡很不连贯
     ui->label->setStyleSheet("background:transparent");

@@ -1,7 +1,6 @@
 release/chathome.o
 release/labelmenu.o
 release/main.o
-release/myglobal.o
 release/mymenu.o
 release/taqikema.o
 release/widget.o

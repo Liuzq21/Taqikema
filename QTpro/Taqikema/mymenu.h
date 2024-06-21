@@ -24,13 +24,15 @@ private slots:
     void openChatHome();
 
 private:
+    Taqikema *window;
     QAction *m_pMinAction;
     QAction *m_pShowAction;
     QAction *m_pCloseAction;
     QAction *m_pChatHomeAction;
 
     QString uName;
-    ChatHome *ch;
+
+    bool chOpened;
 };
 
 #endif // MYMENU_H

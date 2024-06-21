@@ -3,6 +3,7 @@
 
 
 #include <QWidget>
+#include <QSystemTrayIcon>
 #include "labelmenu.h"
 // #include "mymenu.h"  // 不可以在这里加头文件，因为menu从上界面widget传来，会报错重复定义
 class MyMenu;  // 声明但不定义，引用头文件放到.cpp文件中
@@ -32,6 +33,7 @@ private:
     QPoint diff_pos;  // 鼠标和窗口的相对位移
     QPoint window_pos;
     QPoint mouse_pos;
+    QSystemTrayIcon  * systemtrayicon;  //系统托盘
 
     QString uName;  // 用户名字
     MyMenu *menu; // 菜单变量

@@ -9,12 +9,15 @@
 #include <QThread>
 #include <QMessageBox>
 
+extern QWidget *t;
+
 Widget::Widget(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::Widget)
 {
     ui->setupUi(this);
-    this->setWindowFlags(Qt::SplashScreen|Qt::WindowStaysOnTopHint|Qt::FramelessWindowHint);
+    this->setWindowFlags(Qt::SplashScreen|Qt::WindowStaysOnTopHint|Qt::FramelessWindowHint);  // 隐藏窗口选项
+    this->setAttribute(Qt::WA_DeleteOnClose); // close 时析构
     ui->label_5->setVisible(false);
     //初始化系统托盘
     systemtrayicon = new QSystemTrayIcon(this);
@@ -45,7 +48,7 @@ Widget::Widget(QWidget *parent)
 
     connect(m_pMinAction,SIGNAL(triggered(bool)),this,SLOT(minwidget()));
     connect(m_pShowAction,SIGNAL(triggered(bool)),this,SLOT(showwidget()));
-    connect(m_pCloseAction,SIGNAL(triggered(bool)),this,SLOT(closewidget()));
+    connect(m_pCloseAction,SIGNAL(triggered(bool)),qApp,SLOT(quit()));
 
 }
 
@@ -106,6 +109,7 @@ void Widget::on_pushButton_clicked()
             QThread::msleep(1000);  // sleep 1s
             t = new Taqikema(name,nullptr);
             t->show();
+            // systemtrayicon->setContextMenu(t->menu);  // 一种可能的解决办法
             this->close();
         }
     });
