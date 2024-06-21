@@ -29,7 +29,7 @@ public:
     QLabel *label;
     QLabel *label_2;
     QLabel *label_4;
-    QLineEdit *lineEdit;
+    QLineEdit *uName;
     QLineEdit *lineEdit_2;
     QWidget *horizontalLayoutWidget_2;
     QHBoxLayout *horizontalLayout_3;
@@ -51,12 +51,12 @@ public:
         Widget->resize(350, 225);
         label = new QLabel(Widget);
         label->setObjectName("label");
-        label->setGeometry(QRect(0, 2, 346, 80));
+        label->setGeometry(QRect(3, 2, 346, 80));
         label->setPixmap(QPixmap(QString::fromUtf8(":/login/lib/bg1.jpg")));
         label->setScaledContents(true);
         label_2 = new QLabel(Widget);
         label_2->setObjectName("label_2");
-        label_2->setGeometry(QRect(0, 81, 346, 140));
+        label_2->setGeometry(QRect(3, 81, 346, 140));
         label_2->setPixmap(QPixmap(QString::fromUtf8(":/login/lib/bg3.jpg")));
         label_2->setScaledContents(true);
         label_4 = new QLabel(Widget);
@@ -65,10 +65,10 @@ public:
         label_4->setStyleSheet(QString::fromUtf8(""));
         label_4->setPixmap(QPixmap(QString::fromUtf8(":/login/lib/head3.png")));
         label_4->setScaledContents(true);
-        lineEdit = new QLineEdit(Widget);
-        lineEdit->setObjectName("lineEdit");
-        lineEdit->setGeometry(QRect(120, 130, 113, 20));
-        lineEdit->setStyleSheet(QString::fromUtf8("border-style:solid;\n"
+        uName = new QLineEdit(Widget);
+        uName->setObjectName("uName");
+        uName->setGeometry(QRect(120, 130, 113, 20));
+        uName->setStyleSheet(QString::fromUtf8("border-style:solid;\n"
 "border-width:1px;\n"
 "border-top-color: rgba(255, 255, 255, 0);\n"
 "border-right-color: rgba(255, 255, 255, 0);\n"
@@ -156,7 +156,7 @@ public:
         label_3 = new QLabel(Widget);
         label_3->setObjectName("label_3");
         label_3->setGeometry(QRect(0, 0, 350, 225));
-        label_3->setPixmap(QPixmap(QString::fromUtf8(":/login/lib/WhiteBackground.jpg")));
+        label_3->setPixmap(QPixmap(QString::fromUtf8(":/login/lib/WhiteBackground.png")));
         label_3->setScaledContents(true);
         label_5 = new QLabel(Widget);
         label_5->setObjectName("label_5");
@@ -165,7 +165,7 @@ public:
         label->raise();
         label_2->raise();
         label_4->raise();
-        lineEdit->raise();
+        uName->raise();
         lineEdit_2->raise();
         horizontalLayoutWidget_2->raise();
         horizontalLayoutWidget->raise();
@@ -182,7 +182,7 @@ public:
         label->setText(QString());
         label_2->setText(QString());
         label_4->setText(QString());
-        lineEdit->setPlaceholderText(QCoreApplication::translate("Widget", "\347\274\226\345\217\267id", nullptr));
+        uName->setPlaceholderText(QCoreApplication::translate("Widget", "\347\274\226\345\217\267id", nullptr));
         lineEdit_2->setPlaceholderText(QCoreApplication::translate("Widget", "\345\257\206\347\240\201", nullptr));
         checkBox_2->setText(QCoreApplication::translate("Widget", "\350\207\252\345\212\250\347\231\273\345\275\225", nullptr));
         checkBox->setText(QCoreApplication::translate("Widget", "\350\256\260\344\275\217\345\257\206\347\240\201", nullptr));

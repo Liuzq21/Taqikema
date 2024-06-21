@@ -16,7 +16,7 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>0</x>
+     <x>3</x>
      <y>2</y>
      <width>346</width>
      <height>80</height>
@@ -35,7 +35,7 @@
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>0</x>
+     <x>3</x>
      <y>81</y>
      <width>346</width>
      <height>140</height>
@@ -235,7 +235,7 @@ padding-top:2px;
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap resource="allResource.qrc">:/login/lib/WhiteBackground.jpg</pixmap>
+    <pixmap resource="allResource.qrc">:/login/lib/WhiteBackground.png</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>

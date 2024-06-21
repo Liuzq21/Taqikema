@@ -16,5 +16,7 @@
         <file>lib/WhiteBackground.jpg</file>
         <file>lib/hello.gif</file>
         <file>lib/Taqikema.gif</file>
+        <file>lib/waitall-unscreen.gif</file>
+        <file>lib/WhiteBackground.png</file>
     </qresource>
 </RCC>

@@ -47,7 +47,8 @@ Taqikema::Taqikema(QString _uName, QWidget *parent)
 
     // 待机gif-------这个gif还不行，有黑底，而且一卡一卡很不连贯
     ui->label->setStyleSheet("background:transparent");
-    QMovie* wait = new QMovie(":/login/lib/Taqikema.gif");
+    // QMovie* wait = new QMovie(":/login/lib/Taqikema.gif");
+    QMovie* wait = new QMovie(":/login/lib/waitall-unscreen.gif");
     ui->label ->setMovie(wait);
     wait->start();
     ui->label ->setScaledContents(true);
