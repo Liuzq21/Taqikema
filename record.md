@@ -202,7 +202,7 @@ udpSocket->bind(port, QUdpSocket::ShareAddress | QUdpSocket::ReuseAddressHint);
 
 1. 发送消息是报错内存溢出——解决咯！2024-06-19 11:27
 
-2. 退出会话窗口时，整个程序跟着退出——发现了问题connect(m_pMinAction,SIGNAL(triggered(bool)),this,SLOT(minwidget()));连接时，this是menu而不是Taqikema，可能是这有问题。md或许不用自定义的menu类了，全给它写Taqikema里面
+2. 退出会话窗口时，整个程序跟着退出
 
 3. 实现登录成功后，释放登录界面的内存，同时系统图标的菜单进行更改。——ok！2024-06-29 14:31
    1. 主窗口点击关闭按钮，释放了内存，但，程序没退出？？？

@@ -11,7 +11,7 @@ ChatHome::ChatHome( QString _uName, QWidget *parent)
     , ui(new Ui::ChatHome)
 {
     ui->setupUi(this);
-    this->setAttribute(Qt::WA_DeleteOnClose); // close 时析构
+    // this->setAttribute(Qt::WA_DeleteOnClose); // close 时析构
     this->uName = _uName;
     this->port = 9999;
     this->udpSocket = new QUdpSocket(this);

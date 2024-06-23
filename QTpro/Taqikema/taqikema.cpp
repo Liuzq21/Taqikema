@@ -1,15 +1,16 @@
 #include "taqikema.h"
 #include "ui_taqikema.h"
 #include "labelmenu.h"
-#include "mymenu.h"
+#include "chathome.h"
 #include<QPoint>
 #include<QMouseEvent>
 #include<QMovie>
 #include<QAction>
 #include <QSystemTrayIcon>
+#include <QMenu>
 
 Taqikema::Taqikema(QString _uName, QWidget *parent)
-    : uName(_uName), QWidget(parent)
+    : uName(_uName), QWidget(parent), chOpened(false)
     , ui(new Ui::Taqikema)
 {
     ui->setupUi(this);
@@ -18,35 +19,33 @@ Taqikema::Taqikema(QString _uName, QWidget *parent)
     //初始化系统托盘
     systemtrayicon = new QSystemTrayIcon(this);
     QIcon icon = QIcon(":/login/lib/shezhang.png");
-    //添加图标
     systemtrayicon->setIcon(icon);
-    //当鼠标悬浮，显示文字
     systemtrayicon->setToolTip("Taqikema");
-    //显示图标
     systemtrayicon->show();
+    // Menu init
+    m_pChatHomeAction = new QAction("ChatHome");
+    m_pMinAction = new QAction("Minilize");
+    m_pShowAction = new QAction("Show");
+    m_pCloseAction = new QAction("Exit");
 
-    menu = new MyMenu(this);
+    menu = new QMenu(this);
+    menu->addAction(m_pChatHomeAction);
+    menu->addAction(m_pMinAction);
+    menu->addAction(m_pShowAction);
+    menu->addSeparator();
+    menu->addAction(m_pCloseAction);
     systemtrayicon->setContextMenu(menu);
 
     // label右键菜单
     connect(ui->label,SIGNAL(clicked_right()),this,SLOT(right_menu())); //连接label标签点击事件，此处不连接就不会弹出右键菜单
+    // menu connect
+    connect(m_pChatHomeAction,SIGNAL(triggered(bool)),this,SLOT(openChatHome()));
+    connect(m_pMinAction,SIGNAL(triggered(bool)),this,SLOT(minwidget()));
+    connect(m_pShowAction,SIGNAL(triggered(bool)),this,SLOT(showwidget()));
+    connect(m_pCloseAction,SIGNAL(triggered(bool)),this,SLOT(closewidget()));
 
-    // 欢迎gif
-    /*QLabel *label = new QLabel();
-    QMovie *movie = new QMovie("/Users/Biao/Desktop/x.gif");
-    label->setMovie(movie); // 1. 设置要显示的 GIF 动画图片
-    movie->start();         // 2. 启动动画
-    label->show();
-
-    QObject::connect(movie, &QMovie::frameChanged, [=](int frameNumber) {
-        // GIF 动画执行一次就结束
-        if (frameNumber == movie->frameCount() - 1) {
-            movie->stop();
-        }
-    });*/
-
-    // 待机gif-------这个gif还不行，有黑底，而且一卡一卡很不连贯
-    ui->label->setStyleSheet("background:transparent");
+    // 待机gif
+    // ui->label->setStyleSheet("background:transparent");
     // QMovie* wait = new QMovie(":/login/lib/Taqikema.gif");
     QMovie* wait = new QMovie(":/login/lib/waitall-unscreen.gif");
     ui->label ->setMovie(wait);
@@ -60,6 +59,33 @@ Taqikema::~Taqikema()
 {
     delete ui;
 }
+
+void Taqikema::openChatHome(){
+    if(!this->chOpened)
+    {
+        ChatHome *ch;
+        ch = new ChatHome(this->uName); // 关闭的时候记得释放
+        this->chOpened = true;
+        ch->show();
+    }
+}
+
+
+void Taqikema::minwidget(){
+    this->showMinimized();
+    // qDebug() << "Custom menu item clicked!";
+}
+
+void Taqikema::showwidget(){
+    this->showNormal();
+}
+
+
+void Taqikema::closewidget(){
+    QApplication::quit();
+}
+
+
 
 QString Taqikema::getUserName()
 {

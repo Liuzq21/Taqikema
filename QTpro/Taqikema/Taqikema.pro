@@ -12,14 +12,12 @@ SOURCES += \
     chathome.cpp \
     labelmenu.cpp \
     main.cpp \
-    mymenu.cpp \
     taqikema.cpp \
     widget.cpp
 
 HEADERS += \
     chathome.h \
     labelmenu.h \
-    mymenu.h \
     taqikema.h \
     widget.h
 
