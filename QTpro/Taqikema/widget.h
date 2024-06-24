@@ -1,7 +1,6 @@
 #ifndef WIDGET_H
 #define WIDGET_H
 #include"taqikema.h"
-#include"mymenu.h"
 #include <QWidget>
 #include <QSystemTrayIcon>
 

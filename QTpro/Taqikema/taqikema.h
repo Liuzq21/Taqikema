@@ -6,6 +6,9 @@
 #include <QSystemTrayIcon>
 #include "labelmenu.h"
 
+// #include "chathome.h"
+// class ChatHome;  // 声明，但不用头文件，因为链接报错
+
 namespace Ui {
 class Taqikema;
 }
@@ -44,6 +47,8 @@ private:
     QAction *m_pCloseAction;
     QAction *m_pChatHomeAction;
     bool chOpened;
+
+
 
 };
 

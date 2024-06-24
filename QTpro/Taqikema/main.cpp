@@ -1,7 +1,6 @@
 #include "widget.h"
 #include "taqikema.h"
 #include "chathome.h"
-#include "mymenu.h"
 #include <QApplication>
 
 QWidget *t;

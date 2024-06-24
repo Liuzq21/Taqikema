@@ -38,11 +38,13 @@ Taqikema::Taqikema(QString _uName, QWidget *parent)
 
     // label右键菜单
     connect(ui->label,SIGNAL(clicked_right()),this,SLOT(right_menu())); //连接label标签点击事件，此处不连接就不会弹出右键菜单
+
     // menu connect
     connect(m_pChatHomeAction,SIGNAL(triggered(bool)),this,SLOT(openChatHome()));
     connect(m_pMinAction,SIGNAL(triggered(bool)),this,SLOT(minwidget()));
     connect(m_pShowAction,SIGNAL(triggered(bool)),this,SLOT(showwidget()));
     connect(m_pCloseAction,SIGNAL(triggered(bool)),this,SLOT(closewidget()));
+
 
     // 待机gif
     // ui->label->setStyleSheet("background:transparent");
@@ -67,6 +69,9 @@ void Taqikema::openChatHome(){
         ch = new ChatHome(this->uName); // 关闭的时候记得释放
         this->chOpened = true;
         ch->show();
+        connect(ch, &ChatHome::sgnClosed, this, [=](){
+            this->chOpened = false;
+        });
     }
 }
 
@@ -84,8 +89,6 @@ void Taqikema::showwidget(){
 void Taqikema::closewidget(){
     QApplication::quit();
 }
-
-
 
 QString Taqikema::getUserName()
 {

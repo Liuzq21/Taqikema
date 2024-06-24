@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QUdpSocket>
+#include<QCloseEvent>
 #include"taqikema.h"
 
 namespace Ui {
@@ -13,6 +14,8 @@ class ChatHome : public QWidget
 {
     Q_OBJECT
 
+signals:
+    void sgnClosed();
 public:
     enum Msgtype{Msg, UserEnter,UserLeft};
     explicit ChatHome(QString _uName, QWidget *parent = nullptr);
@@ -24,6 +27,7 @@ public:
     QString getMsg();  // 获取聊天信息
     void userEnter(QString username);  // 处理用户进入
     void userLeft(QString username, QString time);  // 处理用户离开
+    void closeEvent(QCloseEvent *); // 覆写窗口关闭事件
 
 
 private slots:

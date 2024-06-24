@@ -4,12 +4,14 @@
 #include <QDataStream>
 #include <QMessageBox>
 #include <QDateTime>
+#include <QCloseEvent>
 
 
 ChatHome::ChatHome( QString _uName, QWidget *parent)
     :  QWidget(parent)
     , ui(new Ui::ChatHome)
 {
+    QApplication::setQuitOnLastWindowClosed(false); // 关闭窗口，程序不退出
     ui->setupUi(this);
     // this->setAttribute(Qt::WA_DeleteOnClose); // close 时析构
     this->uName = _uName;
@@ -24,6 +26,13 @@ ChatHome::ChatHome( QString _uName, QWidget *parent)
 ChatHome::~ChatHome()
 {
     delete ui;
+    delete udpSocket;
+}
+
+
+void ChatHome::closeEvent(QCloseEvent * e){
+    emit sgnClosed();
+    e->accept();
 }
 
 void ChatHome::sndMsg(ChatHome::Msgtype type)
